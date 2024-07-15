@@ -19,6 +19,10 @@
   box-sizing: border-box;
 }
 
+.flash_notice{
+  color: green;
+}
+
 body {
     background-color: #fff;
     color: #333;
@@ -32,6 +36,7 @@ body {
 h1 {
   display: block;
   font-size: 2em;
+  margin: 0.67em 0;
   font-weight: bold;
   unicode-bidi: isolate;
 }
@@ -56,4 +61,12 @@ a:visited {
 a:hover {
   background-color: black;
   color: white;
+}
+
+.field, .actions{
+  margin-bottom: 10px;
+}
+
+input {
+  padding: 1px 6px;
 }
