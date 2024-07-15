@@ -6,16 +6,31 @@
 
   <p>タイトル</p>
   <span><%= book.title %></span>
+  <%= link_to "Show", book_path(book.id) %>
+  <%= link_to "Edit", edit_book_path(book.id) %>
+  <%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
   
 <% end %>
 
 
+
+<% if @book.errors.any? %>
+  <h2><%= @book.errors.count %> error prohibited this book from being saved:</h2>
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+
 <%= form_with model: @book do |f| %>
-  <h4>タイトル</h4>
+  <h4>Title</h4>
   <%= f.text_field :title %>
 	
-  <h4>感想</h4>
+  <h4>Body</h4>
   <%= f.text_area :body %>
 	
-  <%= f.submit '投稿' %>
+  <%= f.submit 'Create Book' %>
 <% end %>
